@@ -1,0 +1,7 @@
+runtime: python37
+
+# [START handlers]
+handlers:
+- url: /.*
+  script: auto
+# [END handlers]
