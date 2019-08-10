@@ -9,6 +9,7 @@ Content-based : that uses only item similarity
 Hybrid RS: that uses item similarity along with user ratings
 Collaborative RS: only uses user ratings
 
+The content-RS was also served as a Rest API using Flask Restful and deployed on Google App engine. The API endpoints is then accesssed using a Jupyter notebook called user_requests.
 
 MovieLens data sets were collected by the GroupLens Research Project at the University of Minnesota.
 This data set consists of:
