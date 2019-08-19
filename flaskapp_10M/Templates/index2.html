@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <!---<link href="http://127.0.0.1:5000/Templates/css/main.css" rel="stylesheet" />  -->
+    <link href="http://127.0.0.1:5000/Templates/css/main.css"" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="http://127.0.0.1:5000/Templates/js/jquery.csv.js"></script>
+  </head>
+  <body>
+    <div class="s131">
+      <div id='header_text'>
+        <p style="font-size: 35px;">A Simple Content-based Recommeder System</p>
+        <p>Type in the name of a movie you like and hit Search <p style="font-size: 20px;"> (if the movie is in the database, it will show in the dropdown)</p></p>
+      </div>
+
+
+      <form action="#" method="POST">
+        <div class="inner-form">
+          <div class="input-field third-wrap">
+            <a href='http://127.0.0.1:5000/' class="btn-search inner-form" style="width:180%;display: block;position: :static;margin-left: 200%;padding-top: 15px;">SEARCH AGAIN</a>
+          </div>
+        </div>
+      </form>
+
+      <div id='results'>
+        <p id='header_text'>Your recommendations are below. Enjoy!</p>
+        {% if output.prediction == 'movie not found. please try again..' %}
+           <p>Oops..The movie you entered was not found in our database. Please try again with a different movie.</p>
+        {% else %}
+        <ol style="list-style: none;">
+          {% for item in output.prediction %}
+          <li> {{item[0]}} <p style="font-size: 10px;"> [{{item[1]}},{{item[2]}},{{item[3]}}] </p> </li>
+          {% endfor %}
+        </ol>
+        {% endif %}
+      </div>
+    </div>
+  
+
+  </body>
+</html>

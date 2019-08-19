@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+    <!---<link href="http://127.0.0.1:5000/Templates/css/main.css" rel="stylesheet" />  -->
+    <link href="http://127.0.0.1:5000/Templates/css/main.css"" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="http://127.0.0.1:5000/Templates/js/jquery.csv.js"></script>
+  </head>
+  <body>
+    <div class="s131">
+      <div id='header_text'>
+        <p style="font-size: 35px;">A Simple Content-based Recommeder System</p>
+        <p>Type in the name of a movie you like and hit Search  <p style="font-size: 20px;"> (if the movie is in the database, it will show in the dropdown menu)</p></p>
+      </div>
+
+
+      <form action="#" method="POST">
+        <div class="inner-form">
+          <div class="input-field first-wrap">
+            <input id="search" type="text" name="inputmovie" placeholder="What are you looking for?"/>
+            <ul class="list-group" id="myList" style="list-style: none;">
+            </ul>
+          </div>
+          <div class="input-field third-wrap">
+            <button class="btn-search" type="submit">SEARCH</button>
+          </div>
+        </div>
+      </form>
+
+
+      <div id='results'>
+      </div>
+    </div>
+    <script>
+    $.ajax({
+      url: "http://127.0.0.1:5000/Templates/export_movie_titles100k.csv",
+      async: false,
+      success: function (csvd) {
+          data = $.csv.toArrays(csvd);
+      },
+      dataType: "text",
+      complete: function () {
+          console.log(data.length)
+          // call a function on complete 
+      }
+    });
+
+    var dropdown = $('#myList');
+    for (var i = 0; i < data.length; i++) {
+      var record = data[i];
+      //var entry = $('<option>').html('value', record.someProperty);
+      var entry = ('<li class="list-group-item" style="display: none;">'+ record +'</li>')
+      //console.log('record:' + record);
+      dropdown.append(entry);
+    }
+
+    $(document).ready(function(){
+    $("#search").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $("#myList li").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    </script>
+
+  </body>
+</html>

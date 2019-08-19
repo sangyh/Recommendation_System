@@ -29,6 +29,9 @@ class content_rec_engine(object):
 		self.ratings = pd.read_csv(path+'/u.data', sep='\t', names=['user_id','movie id', 'rating', 'timestamp'],encoding='latin-1')
 		self.ratings.drop(labels='timestamp',axis=1,inplace=True)
 
+		self.items.to_csv('export_movie_titles100k.csv',columns=['movie title'],header=False, index=False)
+
+
 	def create_feature_lists(self):
 		self.item_features=self.items.drop(labels=['movie title','release date','video release date','IMDb URL','unknown'],axis=1)
 		self.item_features.drop(self.item_features.index[266],inplace=True)
@@ -45,7 +48,7 @@ class content_rec_engine(object):
 		self.item_features=self.item_features.multiply(self.IDF,axis=1)
 
 	def find_similar_movs(self,mov):
-		movie_id_liked=self.items[self.items['movie title'].str.contains(mov)].index.values
+		movie_id_liked=self.items[self.items['movie title'].str.lower().str.contains(mov)].index.values
 		target_features=self.item_features.loc[movie_id_liked[0]]
 
 		#dot product to find similarities with all movies

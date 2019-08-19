@@ -38,7 +38,7 @@ def parse_data():
 		return redirect ('/r')
 		
 
-@app.route('/r',methods=['GET'])
+@app.route('/r',methods=['GET','POST'])
 def get_recs():	
 	user_query = session.get('test_x').lower()
 	recos = model.find_similar_movs(user_query)
@@ -46,7 +46,7 @@ def get_recs():
     # create JSON object
 	output = {'prediction': recos}
         
-	return output
+	return render_template('index2.html', output=output)
 
 
 if __name__ == '__main__':
