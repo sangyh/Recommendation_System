@@ -10,5 +10,6 @@ handlers:
 
 - url: /Templates
   static_dir: /Templates/
+  upload: Templates/.*\.(gif|png|jpg)$
 
 # [END handlers]
