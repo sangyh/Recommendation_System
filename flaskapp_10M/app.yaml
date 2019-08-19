@@ -6,7 +6,7 @@ handlers:
   script: auto
 
 - url: /.*
-  static_files: /Templates/
+  static_dir: Templates
 
 
 # [END handlers]
