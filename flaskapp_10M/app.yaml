@@ -5,7 +5,7 @@ handlers:
 - url: /.*
   script: auto
 
-- url: Templates/index.html
+- url: /Templates/index.html
   static_files: Templates/index.html
   upload: Templates/index.html
 
