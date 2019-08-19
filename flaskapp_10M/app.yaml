@@ -4,4 +4,8 @@ runtime: python37
 handlers:
 - url: /.*
   script: auto
+
+- url: /Templates
+  static_dir: Templates
+
 # [END handlers]
