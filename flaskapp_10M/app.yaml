@@ -5,6 +5,10 @@ handlers:
 - url: /.*
   script: auto
 
+- url: /index.html
+  static_files: Templates/index.html
+  upload: Templates/index.html
+
 - url: /Templates
   static_dir: Templates
 
