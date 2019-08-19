@@ -5,7 +5,7 @@ handlers:
 - url: /.*
   script: auto
 
-- url: /.*
+- url: /Templates
   static_dir: Templates
 
 
