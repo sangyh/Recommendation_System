@@ -8,8 +8,5 @@ handlers:
 - url: /.*
   static_files: /Templates/
 
-- url: /Templates
-  static_dir: /Templates/
-  upload: Templates/.*\.(gif|png|jpg)$
 
 # [END handlers]
