@@ -3,9 +3,9 @@ runtime: python37
 # [START handlers]
 handlers:
 - url: /.*
-  script: main.py
+  script: auto
 
-- url: /index.html
+- url: Templates/index.html
   static_files: Templates/index.html
   upload: Templates/index.html
 
