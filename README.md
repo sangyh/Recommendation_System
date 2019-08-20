@@ -15,3 +15,6 @@ MovieLens data sets were collected by the GroupLens Research Project at the Univ
 This data set consists of:
 * 100,000 ratings (1-5) from 943 users on 1682 movies. 
 * Each user has rated at least 20 movies. 
+
+
+UPDATE: Deployed Content-based recommender modelon GAE, found here: https://content-247321.appspot.com/
