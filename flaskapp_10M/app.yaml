@@ -1,22 +1,8 @@
 runtime: python37
 
-# [START handlers]
 handlers:
-- url: /Templates
-  static_dir: Templates
-
-- url: /index.html
-  static_files: Templates/index.html
-  upload: Templates/index.html
-
-- url: /(.*\.(css|js|png|jpg))
-  static_files: Templates/\1
-  upload: Templates/(.*)
+- url: /static
+  static_dir: static
 
 - url: /.*
   script: auto
-# [END handlers]
-
-libraries:
-- name: jinja2
-  version: "2.6"
