@@ -5,12 +5,14 @@ handlers:
 - url: /.*
   script: auto
 
-- url: /Templates/index.html
+- url: /index.html
   static_files: Templates/index.html
   upload: Templates/index.html
 
 - url: /Templates
   static_dir: Templates
-  upload: Templates
 
+- url: /(.*\.(css|js|png|jpg))
+  static_files: Templates/\1
+  upload: Templates/(.*)
 # [END handlers]
