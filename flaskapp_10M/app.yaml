@@ -2,9 +2,6 @@ runtime: python37
 
 # [START handlers]
 handlers:
-- url: /.*
-  script: auto
-
 - url: /index.html
   static_files: Templates/index.html
   upload: Templates/index.html
@@ -15,4 +12,7 @@ handlers:
 - url: /(.*\.(css|js|png|jpg))
   static_files: Templates/\1
   upload: Templates/(.*)
+
+- url: /.*
+  script: auto
 # [END handlers]
