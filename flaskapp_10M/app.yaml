@@ -2,12 +2,12 @@ runtime: python37
 
 # [START handlers]
 handlers:
+- url: /Templates
+  static_dir: Templates
+
 - url: /index.html
   static_files: Templates/index.html
   upload: Templates/index.html
-
-- url: /Templates
-  static_dir: Templates
 
 - url: /(.*\.(css|js|png|jpg))
   static_files: Templates/\1
