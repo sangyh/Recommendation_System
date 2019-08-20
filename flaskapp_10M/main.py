@@ -6,7 +6,7 @@ import numpy as np
 from model import content_rec_engine
 import json
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder="Templates")
 app.secret_key = "super secret key"
 api = Api(app)
 
