@@ -11,6 +11,6 @@ handlers:
 
 - url: /Templates
   static_dir: Templates
-
+  upload: Templates
 
 # [END handlers]
